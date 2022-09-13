@@ -14,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main', [
+        'title' => 'Inicio'
+    ]);
+});
+Route::get('/uno', function () {
+    return view('encuesta.primera', [
+        'title' => 'Inicio'
+    ]);
 });
 
 Auth::routes();
