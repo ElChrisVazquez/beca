@@ -10,70 +10,80 @@
                     <div class="card-body">
                         <form>
                             @csrf
-
                             {{-- 1. --}}
+                            <h3 class="mb-3">1. Informacion del solicitante</h3>
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="paterno" class="form-label fw-bold">Apellido Paterno</label>
                                     <input type="text" class="form-control" id="paterno" name="paterno" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="materno" class="form-label fw-bold">Apellido Materno</label>
                                     <input type="text" class="form-control" id="materno" name="materno" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="nombre" class="form-label fw-bold">Nombre(s)</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="estado" class="form-label fw-bold">Estado</label>
                                     <select class="form-select" id="estado" name="estado" aria-label="">
-                                        <option selected>Seleccione alguna opción</option>
+                                        <option hidden>Seleccione alguna opción</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="municipio" class="form-label fw-bold">Municipio</label>
-                                    <select class="form-select" id="municipio" name="municipio" aria-label="">
-                                        <option selected>Seleccione alguna opción</option>
+                                    <select class="form-select" id="municipio" name="municipio" aria-label="" disabled
+                                        required>
+                                        <option hidden>Seleccione alguna opción</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="poblacion" class="form-label fw-bold">Población</label>
-                                    <select class="form-select" id="poblacion" name="poblacion" aria-label="">
-                                        <option selected>Seleccione alguna opción</option>
+                                    <select class="form-select" id="poblacion" name="poblacion" aria-label="" disabled
+                                        required>
+                                        <option hidden>Seleccione alguna opción</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 mb-3">
                                     <label for="calle" class="form-label fw-bold">Calle</label>
                                     <input type="text" class="form-control" id="calle" name="calle" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3">
                                     <label for="exterior" class="form-label fw-bold">Número exterior</label>
                                     <input type="text" class="form-control" id="exterior" name="exterior" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3">
                                     <label for="interior" class="form-label fw-bold">Interior</label>
                                     <input type="text" class="form-control" id="interior" name="interior" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 mb-3">
                                     <label for="colonia" class="form-label fw-bold">Colonia</label>
                                     <select class="form-select" id="colonia" name="colonia" aria-label="">
                                         <option selected>Seleccione alguna opción</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-6 col-sm-6 mb-3">
                                     <label for="cp" class="form-label fw-bold">Código Postal</label>
                                     <input type="text" class="form-control" id="cp" name="cp" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="telefono" class="form-label fw-bold">Teléfono</label>
                                     <input type="text" class="form-control" id="telefono" name="telefono" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="celular" class="form-label fw-bold">Celular</label>
                                     <input type="text" class="form-control" id="celular" name="celular" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="email" class="form-label fw-bold">Email</label>
                                     <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
@@ -82,16 +92,21 @@
                             {{-- 2. --}}
                             <hr>
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-4 ">
                                     <label for="beca" class="form-label fw-bold">¿Cuenta con apoyo o beca diferente al
                                         solicitado?</label>
+                                </div>
+                                <div class="col-md-2 mb-2 ">
                                     <select class="form-select" id="beca" name="beca" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
                                         <option>Si</option>
                                         <option>No</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-4 mb-3">
                                     <label for="beca_tipo" class="form-label fw-bold">Tipo de beca</label>
                                     <select class="form-select" id="beca_tipo" name="beca_tipo" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
@@ -105,12 +120,12 @@
                                         <option>Becas de idiomas</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="beca_cantidad" class="form-label fw-bold">Cantidad</label>
                                     <input type="text" class="form-control" id="beca_cantidad" name="beca_cantidad"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="beca_instituto" class="form-label fw-bold">Instituto</label>
                                     <input type="text" class="form-control" id="beca_instituto" name="beca_instituto"
                                         required>
@@ -127,6 +142,7 @@
                                         <option>Padres</option>
                                         <option>Tutores</option>
                                         <option>Usted mismo</option>
+                                        <option>Otro, especifique</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -170,8 +186,8 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_nombre" class="form-label fw-bold">Nombre de la empresa:</label>
-                                    <input type="text" class="form-control" id="trabajo_nombre"
-                                        name="trabajo_nombre" required>
+                                    <input type="text" class="form-control" id="trabajo_nombre" name="trabajo_nombre"
+                                        required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_puesto" class="form-label fw-bold">Cargo o puesto que
@@ -1002,11 +1018,10 @@
 
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="discapacidad_especifique" class="form-label fw-bold">Describa brevemente
+                                    <label for="descripcion" class="form-label fw-bold">Describa brevemente
                                         la situación actual de su familia así como el objetivo que busca lograr con
                                         esta beca:</label>
-                                    <textarea class="form-control" id="discapacidad_especifique" name="discapacidad_especifique" rows="2"
-                                        required></textarea>
+                                    <textarea class="form-control" id="descripcion" name="descripcion" rows="2" required></textarea>
                                 </div>
                             </div>
                             <div class="mb-3 form-check">
@@ -1020,4 +1035,108 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script type="module">
+        // Carga
+        $(document).ready(() => {
+            axios.get('/entidades').
+            then(response => {
+                response.data.map((e) => {
+                    $('#estado').append('<option value="' + e.cve_ent +
+                        '">' + e.nom_ent + '</option>');
+                });
+            });
+        });
+
+        // Cambio
+        $('#estado').change(function(e) {
+            e.preventDefault();
+            // Municipios 
+            axios.get('/municipios', {
+                params: {
+                    cve_ent: this.value
+                }
+            }).
+            then(response => {
+                $('#municipio')
+                    .prop('disabled', false)
+                    .empty()
+                    .append(
+                        '<option value="" disabled hidden selected>Seleccione una opción</option>'
+                    );
+                response.data.map((e) => {
+                    $('#municipio')
+                        .append('<option value="' + e.cve_mun + '">' + e.nom_mun +
+                            '</option>');
+                });
+            });
+        });
+
+        $('#municipio').change(function(e) {
+            e.preventDefault();
+
+            // Localidades 
+            axios.get('/localidades', {
+                params: {
+                    cve_mun: this.value
+                }
+            }).
+            then(response => {
+                $('#poblacion')
+                    .prop('disabled', false)
+                    .empty()
+                    .append(
+                        '<option value="" disabled hidden selected>Seleccione una opción</option>'
+                    );
+                response.data.map((e) => {
+                    $('#poblacion')
+                        .append('<option value="' + e.cve_loc + '">' + e.nom_loc +
+                            '</option>');
+                });
+
+                // Colonias 
+                axios.get('/colonias', {
+                    params: {
+                        c_mnpio: this.value
+                    }
+                }).
+                then(response => {
+                    $('#colonia')
+                        .prop('disabled', false)
+                        .empty()
+                        .append(
+                            '<option value="" disabled hidden selected>Seleccione una opción</option>'
+                        );
+                    response.data.map((e) => {
+                        $('#colonia')
+                            .append('<option value="' + e.id + '">' + e
+                                .d_asenta +
+                                '</option>');
+                    });
+
+                });
+            });
+        });
+        // Actualiza el codigo postal y tipo de asentamiento
+        $('#colonia').change(function(e) {
+            e.preventDefault();
+            axios.get('/cps', {
+                params: {
+                    id: this.value
+                }
+            }).then(response => {
+                $('#cp').val(response.data[0].d_codigo);
+
+                // Define el tipo de asentamiento
+                axios.get('/tp_asentamientos', {
+                    params: {
+                        id: response.data[0].d_tipo_asenta
+                    }
+                }).then(response => {
+                    $('#tipo_asentamiento').val(response.data[0].nombre);
+                });
+            });
+        });
+    </script>
 @endsection

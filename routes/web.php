@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,12 @@ Route::get('/uno', function () {
         'title' => 'Inicio'
     ]);
 });
+
+// Catalogos
+Route::get('/entidades', [CatalogsController::class, 'getEntidades'])->name('entidades');
+Route::get('/municipios', [CatalogsController::class, 'getMunicipios'])->name('municipios');
+Route::get('/localidades', [CatalogsController::class, 'getLocalidades'])->name('localidades');
+Route::get('/colonias', [CatalogsController::class, 'getColonias'])->name('colonias');
 
 Auth::routes();
 
