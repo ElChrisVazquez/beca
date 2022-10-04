@@ -30,6 +30,7 @@ Route::get('/entidades', [CatalogsController::class, 'getEntidades'])->name('ent
 Route::get('/municipios', [CatalogsController::class, 'getMunicipios'])->name('municipios');
 Route::get('/localidades', [CatalogsController::class, 'getLocalidades'])->name('localidades');
 Route::get('/colonias', [CatalogsController::class, 'getColonias'])->name('colonias');
+Route::get('/cps', [CatalogsController::class, 'getCps'])->name('cps');
 
 Auth::routes();
 

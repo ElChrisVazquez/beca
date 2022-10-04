@@ -53,4 +53,16 @@ class CatalogsController extends Controller
             ->get();
         return response($colonias);
     }
+
+    /**
+     * @return response cp por colonia
+     */
+    public function getCps(Request $request)
+    {
+        $cps = DB::table('c_colonias')
+            ->where('id', '=', $request->id)
+            ->get();
+
+        return response($cps);
+    }
 }

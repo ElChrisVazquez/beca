@@ -65,7 +65,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 mb-3">
                                     <label for="colonia" class="form-label fw-bold">Colonia</label>
-                                    <select class="form-select" id="colonia" name="colonia" aria-label="">
+                                    <select class="form-select" id="colonia" name="colonia" aria-label="" disabled>
                                         <option selected>Seleccione alguna opción</option>
                                     </select>
                                 </div>
@@ -92,23 +92,22 @@
                             {{-- 2. --}}
                             <hr>
                             <div class="row">
-                                <div class="col-md-4 mb-4 ">
+                                <div class="col-md-5 mb-4">
                                     <label for="beca" class="form-label fw-bold">¿Cuenta con apoyo o beca diferente al
                                         solicitado?</label>
                                 </div>
                                 <div class="col-md-2 mb-2 ">
                                     <select class="form-select" id="beca" name="beca" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Si</option>
-                                        <option>No</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
-
                                 <div class="col-md-4 mb-3">
                                     <label for="beca_tipo" class="form-label fw-bold">Tipo de beca</label>
-                                    <select class="form-select" id="beca_tipo" name="beca_tipo" aria-label="">
+                                    <select class="form-select" id="beca_tipo" name="beca_tipo" aria-label="" disabled>
                                         <option selected disabled selected>Seleccione alguna opción</option>
                                         <option>Becas de apoyo economico</option>
                                         <option>Becas de estudios</option>
@@ -123,12 +122,12 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="beca_cantidad" class="form-label fw-bold">Cantidad</label>
                                     <input type="text" class="form-control" id="beca_cantidad" name="beca_cantidad"
-                                        required>
+                                        required disabled>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="beca_instituto" class="form-label fw-bold">Instituto</label>
                                     <input type="text" class="form-control" id="beca_instituto" name="beca_instituto"
-                                        required>
+                                        required disabled>
                                 </div>
                             </div>
 
@@ -148,7 +147,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="dependencia_parentesco" class="form-label fw-bold">Parentesco</label>
                                     <input type="text" class="form-control" id="dependencia_parentesco"
-                                        name="dependencia_parentesco" required>
+                                        name="dependencia_parentesco" required disabled>
                                 </div>
                             </div>
 
@@ -169,54 +168,58 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="residencia_otro" class="form-label fw-bold">Especifique:</label>
                                     <input type="text" class="form-control" id="residencia_otro"
-                                        name="residencia_otro" required>
+                                        name="residencia_otro" required disabled>
                                 </div>
                             </div>
 
                             {{-- 5 --}}
                             <hr>
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-3 mb-4">
                                     <label for="trabajo" class="form-label fw-bold">Trabaja actualmente:</label>
+                                </div>
+                                <div class="col-md-2 mb-2">
                                     <select class="form-select" id="trabajo" name="trabajo" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
                                         <option>Si</option>
                                         <option>No</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_nombre" class="form-label fw-bold">Nombre de la empresa:</label>
                                     <input type="text" class="form-control" id="trabajo_nombre" name="trabajo_nombre"
-                                        required>
+                                        required disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_puesto" class="form-label fw-bold">Cargo o puesto que
                                         despempeña:</label>
                                     <input type="text" class="form-control" id="trabajo_puesto" name="trabajo_puesto"
-                                        required>
+                                        required disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_tiempo" class="form-label fw-bold">Cuanto tiempo tiene laborando
                                         en la empresa:</label>
                                     <input type="text" class="form-control" id="trabajo_tiempo" name="trabajo_tiempo"
-                                        required>
+                                        required disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_telefono" class="form-label fw-bold">Telefono:</label>
                                     <input type="text" class="form-control" id="trabajo_telefono"
-                                        name="trabajo_telefono" required>
+                                        name="trabajo_telefono" required disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_domicilio" class="form-label fw-bold">Domicilio:</label>
                                     <input type="text" class="form-control" id="trabajo_domicilio"
-                                        name="trabajo_domicilio" required>
+                                        name="trabajo_domicilio" required disabled>
                                 </div>
                             </div>
 
                             {{-- 6 --}}
                             <hr>
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="padres" class="form-label fw-bold">Viven sus padres:</label>
                                     <select class="form-select" id="padres" name="padres" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
@@ -225,12 +228,12 @@
                                         <option>Solo la madre</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="padres_edad_padre" class="form-label fw-bold">Edad del padre:</label>
                                     <input type="text" class="form-control" id="padres_edad_padre"
                                         name="padres_edad_padre" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="padres_edad_madre" class="form-label fw-bold">Edad de la madre:</label>
                                     <input type="text" class="form-control" id="padres_edad_madre"
                                         name="padres_edad_madre" required>
@@ -244,20 +247,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="padres_padre_civil" class="form-label fw-bold">Estado civil del
-                                        padre</label>
-                                    <select class="form-select" id="padres_padre_civil" name="padres_padre_civil"
-                                        aria-label="">
-                                        <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Casada(o)</option>
-                                        <option>Unión libre</option>
-                                        <option>Viuda(o)</option>
-                                        <option>Divorciada(o)</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="padres_madre_civil" class="form-label fw-bold">Estado civil del
-                                        padre</label>
+                                    <label for="padres_madre_civil" class="form-label fw-bold">Estado civil de los
+                                        padres</label>
                                     <select class="form-select" id="padres_madre_civil" name="padres_madre_civil"
                                         aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
@@ -268,7 +259,6 @@
                                     </select>
                                 </div>
 
-                                {{-- 10 --}}
                                 <div class="col-md-6 mb-3">
                                     <label for="padres_padre_escolaridad" class="form-label fw-bold">Escolaridad maxima
                                         del padre</label>
@@ -294,7 +284,11 @@
                                     </select>
                                 </div>
                             </div>
+                            {{-- 10 --}}
+                            <h3 class="mb-3">Cuál es la principal ocupación remunerada que tienen sus padres o tutores
+                                actualmente:</h3>
                             <hr>
+                            <h4 class="mb-3">Padre:</h4>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="padre_nombre" class="form-label fw-bold">Nombre completo:</label>
@@ -331,6 +325,7 @@
                                 </div>
                             </div>
                             <hr>
+                            <h4 class="mb-3">Madre:</h4>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="madre_nombre" class="form-label fw-bold">Nombre completo:</label>
@@ -367,7 +362,8 @@
                                 </div>
                             </div>
                             <hr>
-                            En caso de existir
+                            <h3 class="mb-3">En caso de existir más personas que aporten al gasto familiar, específique
+                                los siguientes datos:</h3>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="familiar_nombre" class="form-label fw-bold">Nombre:</label>
@@ -1127,16 +1123,20 @@
                 }
             }).then(response => {
                 $('#cp').val(response.data[0].d_codigo);
-
-                // Define el tipo de asentamiento
-                axios.get('/tp_asentamientos', {
-                    params: {
-                        id: response.data[0].d_tipo_asenta
-                    }
-                }).then(response => {
-                    $('#tipo_asentamiento').val(response.data[0].nombre);
-                });
             });
+        });
+
+        $('#beca').change(function (e) { 
+            e.preventDefault();
+            if(parseInt(this.value) === 1){
+                $('#beca_tipo').prop('disabled', false);
+                $('#beca_cantidad').prop('disabled', false);
+                $('#beca_instituto').prop('disabled', false);
+            }else{
+                $('#beca_tipo').prop('disabled',true);
+                $('#beca_cantidad').prop('disabled',true);
+                $('#beca_instituto').prop('disabled',true);
+            }
         });
     </script>
 @endsection
