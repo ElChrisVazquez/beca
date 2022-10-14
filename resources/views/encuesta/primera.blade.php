@@ -104,7 +104,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="beca_si" style="display: none">
                                 <div class="col-md-4 mb-3">
                                     <label for="beca_tipo" class="form-label fw-bold">Tipo de beca</label>
                                     <select class="form-select" id="beca_tipo" name="beca_tipo" aria-label="" disabled>
@@ -141,19 +141,16 @@
                                         <option>Padres</option>
                                         <option>Tutores</option>
                                         <option>Usted mismo</option>
-                                        <option>Otro, especifique</option>
+                                        <option>Otro</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="dependencia_parentesco" class="form-label fw-bold">Parentesco</label>
+                                <div class="col-md-6 mb-3" id="dependencia_especifique" style="display: none">
+                                    <label for="dependencia_parentesco" class="form-label fw-bold">Especifique:</label>
                                     <input type="text" class="form-control" id="dependencia_parentesco"
                                         name="dependencia_parentesco" required disabled>
                                 </div>
-                            </div>
 
-                            {{-- 4 --}}
-                            <hr>
-                            <div class="row">
+                                {{-- 4 --}}
                                 <div class="col-md-6 mb-3">
                                     <label for="residencia" class="form-label fw-bold">Vive con:</label>
                                     <select class="form-select" id="residencia" name="residencia" aria-label="">
@@ -165,7 +162,7 @@
                                         <option>Otro</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-6 mb-3" id="residencia_especifique" style="display: none">
                                     <label for="residencia_otro" class="form-label fw-bold">Especifique:</label>
                                     <input type="text" class="form-control" id="residencia_otro"
                                         name="residencia_otro" required disabled>
@@ -181,12 +178,12 @@
                                 <div class="col-md-2 mb-2">
                                     <select class="form-select" id="trabajo" name="trabajo" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Si</option>
-                                        <option>No</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="trabajo_si" style="display: none">
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_nombre" class="form-label fw-bold">Nombre de la empresa:</label>
                                     <input type="text" class="form-control" id="trabajo_nombre" name="trabajo_nombre"
@@ -1129,13 +1126,60 @@
         $('#beca').change(function (e) { 
             e.preventDefault();
             if(parseInt(this.value) === 1){
+                $('#beca_si').show();
                 $('#beca_tipo').prop('disabled', false);
                 $('#beca_cantidad').prop('disabled', false);
                 $('#beca_instituto').prop('disabled', false);
             }else{
+                $('#beca_si').hide();
                 $('#beca_tipo').prop('disabled',true);
                 $('#beca_cantidad').prop('disabled',true);
                 $('#beca_instituto').prop('disabled',true);
+            }
+        });
+
+        $('#dependencia').change(function (e) { 
+            e.preventDefault();
+            if(this.value === 'Otro'){
+                $('#dependencia_especifique').show();
+                $('#dependencia_parentesco').prop('disabled', false);
+                
+            }else{
+                console.log('no entra');
+                $('#dependencia_especifique').hide();
+                $('#dependencia_parentesco').prop('disabled', true);
+            }
+        });
+
+        $('#residencia').change(function (e) { 
+            e.preventDefault();
+            if(this.value === 'Otro'){
+                $('#residencia_especifique').show();
+                $('#residencia_otro').prop('disabled', false);
+            }else{
+                console.log('no entra');
+                $('#residencia_especifique').hide();
+                $('#residencia_otro').prop('disabled', true);
+            }
+        });
+
+        $('#trabajo').change(function (e) { 
+            e.preventDefault();
+            if(parseInt(this.value) === 1){
+                $('#trabajo_si').show();
+                $('#trabajo_nombre').prop('disabled', false);
+                $('#trabajo_puesto').prop('disabled', false);
+                $('#trabajo_tiempo').prop('disabled', false);
+                $('#trabajo_telefono').prop('disabled', false);
+                $('#trabajo_domicilio').prop('disabled', false);
+            }else{
+                console.log('no entra');
+                $('#trabajo_si').hide();
+                $('#trabajo_nombre').prop('disabled', true);
+                $('#trabajo_puesto').prop('disabled', true);
+                $('#trabajo_tiempo').prop('disabled', true);
+                $('#trabajo_telefono').prop('disabled', true);
+                $('#trabajo_domicilio').prop('disabled', true);
             }
         });
     </script>
