@@ -19,18 +19,13 @@ class UserSeeder extends Seeder
         DB::table('users')->insert(
             [
                 [
-                    'name' => 'Super',
-                    'username' => 'super',
-                    'password' => Hash::make('123'),
-                ],
-                [
                     'name' => 'Administrador',
                     'username' => 'admin',
                     'password' => Hash::make('123'),
                 ],
                 [
-                    'name' => 'Visor',
-                    'username' => 'visor',
+                    'name' => 'Analista',
+                    'username' => 'analista',
                     'password' => Hash::make('123'),
                 ]
             ]

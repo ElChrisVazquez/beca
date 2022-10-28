@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body class="verde d-flex flex-column min-vh-100">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -84,5 +84,7 @@
     </div>
     @yield('scripts')
 </body>
+{{-- footer --}}
+@include('layouts.footer')
 
 </html>
