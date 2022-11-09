@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
-            $table->string('matricula')->unique();
-            $table->string('nombre');
+            $table->string('matricula', 10)->unique();
             $table->string('paterno');
             $table->string('materno');
+            $table->string('nombre');
+            $table->date('fecha_nacimiento');
+            $table->unsignedTinyInteger('estatus_estudiante_id');
+            $table->unsignedTinyInteger('carrera_id');
             $table->timestamps();
         });
     }

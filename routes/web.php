@@ -19,8 +19,13 @@ Route::get('/', function () {
         'title' => 'Inicio'
     ]);
 });
-Route::get('/uno', function () {
-    return view('encuesta.primera', [
+Route::get('/estudio', function () {
+    return view('formatos.estudio', [
+        'title' => 'Inicio'
+    ]);
+});
+Route::get('/solicitud', function () {
+    return view('formatos.solicitud', [
         'title' => 'Inicio'
     ]);
 });
