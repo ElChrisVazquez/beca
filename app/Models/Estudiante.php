@@ -36,9 +36,11 @@ class Estudiante extends Model
      * @var array
      */
     protected $fillable = [
-        'matricula',
-        'nombre',
         'paterno',
-        'materno'
+        'materno',
+        'nombre',
+        'fecha_nacimiento',
+        'estatus_estudiante_id',
+        'carrera_id'
     ];
 }

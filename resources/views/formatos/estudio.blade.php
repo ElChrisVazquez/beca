@@ -11,19 +11,22 @@
                         <form>
                             @csrf
                             {{-- 1. --}}
-                            <h3 class="mb-3">1. Informacion del solicitante</h3>
+                            {{-- <h3 class="mb-3">1. Informacion del solicitante</h3> --}}
                             <div class="row">
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="paterno" class="form-label fw-bold">Apellido Paterno</label>
-                                    <input type="text" class="form-control" id="paterno" name="paterno" required>
+                                    <input type="text" class="form-control" id="paterno" name="paterno"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" required>
                                 </div>
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="materno" class="form-label fw-bold">Apellido Materno</label>
-                                    <input type="text" class="form-control" id="materno" name="materno" required>
+                                    <input type="text" class="form-control" id="materno" name="materno"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" required>
                                 </div>
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="nombre" class="form-label fw-bold">Nombre(s)</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -51,15 +54,18 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 mb-3">
                                     <label for="calle" class="form-label fw-bold">Calle</label>
-                                    <input type="text" class="form-control" id="calle" name="calle" required>
+                                    <input type="text" class="form-control" id="calle" name="calle"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" required>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 col-sm-6 mb-3">
                                     <label for="exterior" class="form-label fw-bold">Número exterior</label>
-                                    <input type="text" class="form-control" id="exterior" name="exterior" required>
+                                    <input type="text" class="form-control" id="exterior" name="exterior"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 col-sm-6 mb-3">
                                     <label for="interior" class="form-label fw-bold">Interior</label>
-                                    <input type="text" class="form-control" id="interior" name="interior" required>
+                                    <input type="text" class="form-control" id="interior" name="interior"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -71,32 +77,36 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6 mb-3">
                                     <label for="cp" class="form-label fw-bold">Código Postal</label>
-                                    <input type="text" class="form-control" id="cp" name="cp" required>
+                                    <input type="text" class="form-control" id="cp" name="cp"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="telefono" class="form-label fw-bold">Teléfono</label>
-                                    <input type="text" class="form-control" id="telefono" name="telefono" required>
+                                    <input type="text" class="form-control" id="telefono" name="telefono"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"required>
                                 </div>
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="celular" class="form-label fw-bold">Celular</label>
-                                    <input type="text" class="form-control" id="celular" name="celular" required>
+                                    <input type="text" class="form-control" id="celular" name="celular"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"required>
                                 </div>
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="email" class="form-label fw-bold">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <input type="email" class="form-control" id="email"
+                                        name="email"pattern="[A-z0-9._%+-]+@[A-z0-9.-]+\.[a-z]{2,4}$" required>
                                 </div>
                             </div>
 
                             {{-- 2. --}}
-                            <hr>
+                            {{-- <hr> --}}
+                            {{-- <h3 class="mb-3">2. ¿Cuenta con apoyo o beca diferente al
+                                solicitado?</h3> --}}
                             <div class="row">
-                                <div class="col-md-5 mb-4">
+                                <div class="col-md-6 mb-4">
                                     <label for="beca" class="form-label fw-bold">¿Cuenta con apoyo o beca diferente al
                                         solicitado?</label>
-                                </div>
-                                <div class="col-md-2 mb-2 ">
                                     <select class="form-select" id="beca" name="beca" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
                                         <option value="1">Si</option>
@@ -107,32 +117,24 @@
                             <div class="row" id="beca_si" style="display: none">
                                 <div class="col-md-4 mb-3">
                                     <label for="beca_tipo" class="form-label fw-bold">Tipo de beca</label>
-                                    <select class="form-select" id="beca_tipo" name="beca_tipo" aria-label="" disabled>
-                                        <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Becas de apoyo economico</option>
-                                        <option>Becas de estudios</option>
-                                        <option>Becas de movilidad</option>
-                                        <option>Becas de investigación</option>
-                                        <option>Becas deportivas</option>
-                                        <option>Becas deportivas</option>
-                                        <option>Becas de formación práctica</option>
-                                        <option>Becas de idiomas</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="beca_tipo" name="beca_tipo"
+                                        oninput="this.value = this.value.replace(/[^a-zA-z]/g, '')" required disabled>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="beca_cantidad" class="form-label fw-bold">Cantidad</label>
-                                    <input type="text" class="form-control" id="beca_cantidad" name="beca_cantidad"
-                                        required disabled>
+                                    <input type="text" class="form-control"
+                                        id="beca_cantidad"oninput="this.value = this.value.replace(/[^\d*\.?\d*$]/g, '')"name="beca_cantidad"
+                                        placeholder="$0.00" required disabled>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="beca_instituto" class="form-label fw-bold">Instituto</label>
+                                    <label for="beca_instituto" class="form-label fw-bold">Nombre del Instituto</label>
                                     <input type="text" class="form-control" id="beca_instituto" name="beca_instituto"
-                                        required disabled>
+                                        oninput="this.value = this.value.replace(/[^a-zA-z]/g, '')" required disabled>
                                 </div>
                             </div>
 
                             {{-- 3 --}}
-                            <hr>
+                            {{-- <hr> --}}
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="dependencia" class="form-label fw-bold">Depende econocimamente de:</label>
@@ -147,10 +149,13 @@
                                 <div class="col-md-6 mb-3" id="dependencia_especifique" style="display: none">
                                     <label for="dependencia_parentesco" class="form-label fw-bold">Especifique:</label>
                                     <input type="text" class="form-control" id="dependencia_parentesco"
-                                        name="dependencia_parentesco" required disabled>
+                                        name="dependencia_parentesco"
+                                        oninput="this.value = this.value.replace(/[^a-zA-z]/g, '')" required disabled>
                                 </div>
+                            </div>
 
-                                {{-- 4 --}}
+                            {{-- 4 --}}
+                            <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="residencia" class="form-label fw-bold">Vive con:</label>
                                     <select class="form-select" id="residencia" name="residencia" aria-label="">
@@ -165,17 +170,16 @@
                                 <div class="col-md-6 mb-3" id="residencia_especifique" style="display: none">
                                     <label for="residencia_otro" class="form-label fw-bold">Especifique:</label>
                                     <input type="text" class="form-control" id="residencia_otro"
-                                        name="residencia_otro" required disabled>
+                                        name="residencia_otro" oninput="this.value = this.value.replace(/[^a-zA-z]/g, '')"
+                                        required disabled>
                                 </div>
                             </div>
 
                             {{-- 5 --}}
-                            <hr>
+                            {{-- <hr> --}}
                             <div class="row">
-                                <div class="col-md-3 mb-4">
+                                <div class="col-md-6 mb-3">
                                     <label for="trabajo" class="form-label fw-bold">Trabaja actualmente:</label>
-                                </div>
-                                <div class="col-md-2 mb-2">
                                     <select class="form-select" id="trabajo" name="trabajo" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
                                         <option value="1">Si</option>
@@ -187,13 +191,13 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_nombre" class="form-label fw-bold">Nombre de la empresa:</label>
                                     <input type="text" class="form-control" id="trabajo_nombre" name="trabajo_nombre"
-                                        required disabled>
+                                    oninput="this.value = this.value.replace(/[^a-zA-z]/g, '')" required disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_puesto" class="form-label fw-bold">Cargo o puesto que
                                         despempeña:</label>
                                     <input type="text" class="form-control" id="trabajo_puesto" name="trabajo_puesto"
-                                        required disabled>
+                                    oninput="this.value = this.value.replace(/[^a-zA-z]/g, '')" required disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_tiempo" class="form-label fw-bold">Cuanto tiempo tiene laborando
@@ -204,7 +208,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_telefono" class="form-label fw-bold">Telefono:</label>
                                     <input type="text" class="form-control" id="trabajo_telefono"
-                                        name="trabajo_telefono" required disabled>
+                                        name="trabajo_telefono" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_domicilio" class="form-label fw-bold">Domicilio:</label>
@@ -214,7 +218,7 @@
                             </div>
 
                             {{-- 6 --}}
-                            <hr>
+                            {{-- <hr> --}}
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label for="padres" class="form-label fw-bold">Viven sus padres:</label>
@@ -228,12 +232,12 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="padres_edad_padre" class="form-label fw-bold">Edad del padre:</label>
                                     <input type="text" class="form-control" id="padres_edad_padre"
-                                        name="padres_edad_padre" required>
+                                        name="padres_edad_padre" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="padres_edad_madre" class="form-label fw-bold">Edad de la madre:</label>
                                     <input type="text" class="form-control" id="padres_edad_madre"
-                                        name="padres_edad_madre" required>
+                                        name="padres_edad_madre" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="padres_juntos" class="form-label fw-bold">Viven juntos:</label>
@@ -477,139 +481,139 @@
                             {{-- 19 --}}
                             Cuanto es el gasto mensual de tu familia en los siguientes conceptos:
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_alimentos" class="form-label fw-bold">Alimentos:</label>
                                     <input type="text" class="form-control" id="gasto_alimentos"
                                         name="gasto_alimentos" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gastos_despensa" class="form-label fw-bold">Despensa:</label>
                                     <input type="text" class="form-control" id="gastos_despensa"
                                         name="gastos_despensa" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gastos_limpieza" class="form-label fw-bold">Productos de limpieza:</label>
                                     <input type="text" class="form-control" id="gastos_limpieza"
                                         name="gastos_limpieza" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_telefono" class="form-label fw-bold">Teléfono:</label>
                                     <input type="text" class="form-control" id="gasto_telefono" name="gasto_telefono"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_domestico" class="form-label fw-bold">Servicios domésticos:</label>
                                     <input type="text" class="form-control" id="gasto_domestico"
                                         name="gasto_domestico" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_auto" class="form-label fw-bold">Pago crédito de automóvil:</label>
                                     <input type="text" class="form-control" id="gasto_auto" name="gasto_auto"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_tarjetas" class="form-label fw-bold">Tarjetas de crédito:</label>
                                     <input type="text" class="form-control" id="gasto_tarjetas" name="gasto_tarjetas"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_ropa" class="form-label fw-bold">Ropa y alimento:</label>
                                     <input type="text" class="form-control" id="gasto_ropa" name="gasto_ropa"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_personal" class="form-label fw-bold">Gastos personales:</label>
                                     <input type="text" class="form-control" id="gasto_personal" name="gasto_personal"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_colegiatura_propia" class="form-label fw-bold">Colegiatura del
                                         solicitante:</label>
                                     <input type="text" class="form-control" id="gasto_colegiatura_propia"
                                         name="gasto_colegiatura_propia" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_colegiatura_otros" class="form-label fw-bold">Colegiatura de otro
                                         miembro de la familia:</label>
                                     <input type="text" class="form-control" id="gasto_colegiatura_otros"
                                         name="gasto_colegiatura_otros" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_diversion" class="form-label fw-bold">Diversion y
                                         entretenimiento:</label>
                                     <input type="text" class="form-control" id="gasto_diversion"
                                         name="gasto_diversion" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_libros" class="form-label fw-bold">Libros y materiales:</label>
                                     <input type="text" class="form-control" id="gasto_libros" name="gasto_libros"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_renta" class="form-label fw-bold">Renta y/o predial:</label>
                                     <input type="text" class="form-control" id="gasto_renta" name="gasto_renta"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_luz" class="form-label fw-bold">Luz:</label>
                                     <input type="text" class="form-control" id="gasto_luz" name="gasto_luz" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_agua" class="form-label fw-bold">Agua:</label>
                                     <input type="text" class="form-control" id="gasto_agua" name="gasto_agua"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_transporte" class="form-label fw-bold">Transporte:</label>
                                     <input type="text" class="form-control" id="gasto_transporte"
                                         name="gasto_transporte" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_celular" class="form-label fw-bold">Celular:</label>
                                     <input type="text" class="form-control" id="gasto_celular" name="gasto_celular"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_cable" class="form-label fw-bold">Cable:</label>
                                     <input type="text" class="form-control" id="gasto_cable" name="gasto_cable"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_seguros" class="form-label fw-bold">Seguros de vida, auto, casa,
                                         médico:</label>
                                     <input type="text" class="form-control" id="gasto_seguros" name="gasto_seguros"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_internet" class="form-label fw-bold">Internet:</label>
                                     <input type="text" class="form-control" id="gasto_internet" name="gasto_internet"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_gas" class="form-label fw-bold">Gas:</label>
                                     <input type="text" class="form-control" id="gasto_gas" name="gasto_gas" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_hipoteca" class="form-label fw-bold">Pago hipoteca:</label>
                                     <input type="text" class="form-control" id="gasto_hipoteca" name="gasto_hipoteca"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_medicos" class="form-label fw-bold">Gastos médocos:</label>
                                     <input type="text" class="form-control" id="gasto_medicos" name="gasto_medicos"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_vacaciones" class="form-label fw-bold">Vacaciones:</label>
                                     <input type="text" class="form-control" id="gasto_vacaciones"
                                         name="gasto_vacaciones" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_otros" class="form-label fw-bold">Otros gastos:</label>
                                     <input type="text" class="form-control" id="gasto_otros" name="gasto_otros"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                                     <label for="gasto_total" class="form-label fw-bold">Gastos total:</label>
                                     <input type="text" class="form-control" id="gasto_total" name="gasto_total"
                                         required>
@@ -619,61 +623,63 @@
                             <hr>
                             {{-- 20 --}}
                             Si eres foraneo, infique la cantidad mensual que paga por los siguientes conceptos:
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_colegiatura" class="form-label fw-bold">Colegiatura:</label>
-                                    <input type="text" class="form-control" id="foraneo_colegiatura"
-                                        name="foraneo_colegiatura" required>
+                            <small>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_colegiatura" class="form-label fw-bold">Colegiatura:</label>
+                                        <input type="text" class="form-control" id="foraneo_colegiatura"
+                                            name="foraneo_colegiatura" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_ropa" class="form-label fw-bold">Ropa:</label>
+                                        <input type="text" class="form-control" id="foraneo_ropa" name="foraneo_ropa"
+                                            required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_vivienda" class="form-label fw-bold">Vivienda:</label>
+                                        <input type="text" class="form-control" id="foraneo_vivienda"
+                                            name="foraneo_vivienda" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_libros" class="form-label fw-bold">Libros:</label>
+                                        <input type="text" class="form-control" id="foraneo_libros"
+                                            name="foraneo_libros" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_lavanderia" class="form-label fw-bold">Lavandería:</label>
+                                        <input type="text" class="form-control" id="foraneo_lavanderia"
+                                            name="foraneo_lavanderia" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_transporte_local" class="form-label fw-bold">Transporte
+                                            local:</label>
+                                        <input type="text" class="form-control" id="foraneo_transporte_local"
+                                            name="foraneo_transporte_local" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_personal" class="form-label fw-bold">Gastos
+                                            personales:</label>
+                                        <input type="text" class="form-control" id="foraneo_personal"
+                                            name="foraneo_personal" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_transporte_foraneo"
+                                            class="form-label fw-bold">Colegiatura:</label>
+                                        <input type="text" class="form-control" id="foraneo_transporte_foraneo"
+                                            name="foraneo_transporte_foraneo" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_comida" class="form-label fw-bold">Comida:</label>
+                                        <input type="text" class="form-control" id="foraneo_comida"
+                                            name="foraneo_comida" required>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
+                                        <label for="foraneo_total" class="form-label fw-bold">Gasto total mensual:</label>
+                                        <input type="text" class="form-control" id="foraneo_total"
+                                            name="foraneo_total" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_ropa" class="form-label fw-bold">Ropa:</label>
-                                    <input type="text" class="form-control" id="foraneo_ropa" name="foraneo_ropa"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_vivienda" class="form-label fw-bold">Vivienda:</label>
-                                    <input type="text" class="form-control" id="foraneo_vivienda"
-                                        name="foraneo_vivienda" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_libros" class="form-label fw-bold">Libros:</label>
-                                    <input type="text" class="form-control" id="foraneo_libros" name="foraneo_libros"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_lavanderia" class="form-label fw-bold">Lavandería:</label>
-                                    <input type="text" class="form-control" id="foraneo_lavanderia"
-                                        name="foraneo_lavanderia" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_transporte_local" class="form-label fw-bold">Transporte
-                                        local:</label>
-                                    <input type="text" class="form-control" id="foraneo_transporte_local"
-                                        name="foraneo_transporte_local" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_personal" class="form-label fw-bold">Gastos personales:</label>
-                                    <input type="text" class="form-control" id="foraneo_personal"
-                                        name="foraneo_personal" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_transporte_foraneo"
-                                        class="form-label fw-bold">Colegiatura:</label>
-                                    <input type="text" class="form-control" id="foraneo_transporte_foraneo"
-                                        name="foraneo_transporte_foraneo" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_comida" class="form-label fw-bold">Comida:</label>
-                                    <input type="text" class="form-control" id="foraneo_comida" name="foraneo_comida"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="foraneo_total" class="form-label fw-bold">Gasto total mensual:</label>
-                                    <input type="text" class="form-control" id="foraneo_total" name="foraneo_total"
-                                        required>
-                                </div>
-                            </div>
-
+                            </small>
                             <hr>
                             {{-- 21 --}}
                             <div class="row">
@@ -744,109 +750,109 @@
                             <hr>
                             {{-- 23 --}}
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_sala" class="form-label fw-bold">Sala:</label>
                                     <input type="text" class="form-control" id="casa_sala" name="casa_sala" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_internet" class="form-label fw-bold">Internet:</label>
                                     <input type="text" class="form-control" id="casa_internet" name="casa_internet"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_ventilador" class="form-label fw-bold">Ventilador:</label>
                                     <input type="text" class="form-control" id="casa_ventilador"
                                         name="casa_ventilador" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_comedor" class="form-label fw-bold">Comedor:</label>
                                     <input type="text" class="form-control" id="casa_comedor" name="casa_comedor"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_cable" class="form-label fw-bold">Cable:</label>
                                     <input type="text" class="form-control" id="casa_cable" name="casa_cable"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_computadora" class="form-label fw-bold">Computadora:</label>
                                     <input type="text" class="form-control" id="casa_computadora"
                                         name="casa_computadora" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_lavadora" class="form-label fw-bold">Lavadora:</label>
                                     <input type="text" class="form-control" id="casa_lavadora" name="casa_lavadora"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_impresora" class="form-label fw-bold">Impresora:</label>
                                     <input type="text" class="form-control" id="casa_impresora" name="casa_impresora"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_camas" class="form-label fw-bold">Camas:</label>
                                     <input type="text" class="form-control" id="casa_camas" name="casa_camas"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_tv" class="form-label fw-bold">TV:</label>
                                     <input type="text" class="form-control" id="casa_tv" name="casa_tv" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_secadora" class="form-label fw-bold">Secadora:</label>
                                     <input type="text" class="form-control" id="casa_secadora" name="casa_secadora"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_cochera" class="form-label fw-bold">Cochera:</label>
                                     <input type="text" class="form-control" id="casa_cochera" name="casa_cochera"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_banos" class="form-label fw-bold">Baños:</label>
                                     <input type="text" class="form-control" id="casa_banos" name="casa_banos"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_telefono" class="form-label fw-bold">Teléfono:</label>
                                     <input type="text" class="form-control" id="casa_telefono" name="casa_telefono"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_patio" class="form-label fw-bold">Patio:</label>
                                     <input type="text" class="form-control" id="casa_patio" name="casa_patio"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_estereo" class="form-label fw-bold">Estéreo:</label>
                                     <input type="text" class="form-control" id="casa_estereo" name="casa_estereo"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_refrigerador" class="form-label fw-bold">Refrigerador:</label>
                                     <input type="text" class="form-control" id="casa_refrigerador"
                                         name="casa_refrigerador" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_jardin" class="form-label fw-bold">Jardín:</label>
                                     <input type="text" class="form-control" id="casa_jardin" name="casa_jardin"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_celular" class="form-label fw-bold">Celular:</label>
                                     <input type="text" class="form-control" id="casa_celular" name="casa_celular"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_dvd" class="form-label fw-bold">DVD:</label>
                                     <input type="text" class="form-control" id="casa_dvd" name="casa_dvd" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_micro" class="form-label fw-bold">Microhondas:</label>
                                     <input type="text" class="form-control" id="casa_micro" name="casa_micro"
                                         required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-6 mb-3">
                                     <label for="casa_fax" class="form-label fw-bold">Fax:</label>
                                     <input type="text" class="form-control" id="casa_fax" name="casa_fax" required>
                                 </div>
