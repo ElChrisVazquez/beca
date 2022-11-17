@@ -14,7 +14,7 @@ class Estudiante extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'estudiantes';
+    protected $primaryKey = 'id';
 
     /**
      * Indicates if the model's ID is auto-incrementing.
@@ -36,6 +36,7 @@ class Estudiante extends Model
      * @var array
      */
     protected $fillable = [
+        'matricula',
         'paterno',
         'materno',
         'nombre',
