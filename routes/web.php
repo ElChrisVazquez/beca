@@ -14,11 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main', [
-        'title' => 'Inicio'
-    ]);
-});
+
 Route::get('/uno', function () {
     return view('formatos.uno', [
         'title' => 'Inicio'
@@ -58,5 +54,8 @@ Route::get('/colonias', [CatalogsController::class, 'getColonias'])->name('colon
 Route::get('/cps', [CatalogsController::class, 'getCps'])->name('cps');
 
 Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'inicio'])->name('inicio');
+Route::post('/home', [App\Http\Controllers\HomeController::class, 'checkStudent'])->name('check');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

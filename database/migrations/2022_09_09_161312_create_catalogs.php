@@ -15,14 +15,18 @@ return new class extends Migration
     public function up()
     {
         // Parentesco
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('c_parentescos');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Schema::create('c_parentescos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->nullable(false);
         });
 
         // Estudios
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('c_niveles_academicos');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Schema::create('c_niveles_academicos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->nullable(false);
@@ -41,7 +45,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre')->nullable(false);
             $table->unsignedBigInteger('plan_estudio_id')->nullable(false);
-            $table->integer('semestres')->nullable(false);
+            $table->integer('ciclos')->nullable(false);
         });
 
         // Plan de estudio
@@ -50,7 +54,6 @@ return new class extends Migration
             $table->id();
             $table->string('nombre')->nullable(false);
             $table->string('modalidad')->nullable(false);
-            $table->integer('semestres')->nullable(false);
             $table->double('costo')->nullable(false);
         });
 
@@ -110,6 +113,7 @@ return new class extends Migration
         });
 
         // Historicos
+        Schema::dropIfExists('historicos');
         Schema::create('historicos', function (Blueprint $table) {
             $table->id();
             $table->string('matricula_estudiante', 10)->nullable(false);

@@ -8,17 +8,20 @@
                     <div class="card-header"></div>
 
                     <div class="card-body">
-                        <form>
+                        <form method="POST" action="{{ route('check') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="matricula" class="form-label fw-bold">Matrícula</label>
-                                <input type="email" class="form-control" id="matricula" required>
+                                <input type="text" class="form-control" id="matricula" name="matricula" maxlength="10"
+                                    minlength="10" style="text-transform:uppercase" required>
                             </div>
-                            <div class="mb-3 form-check">
+                            {{-- <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="terminos" required>
                                 <label class="form-check-label" for="terminos">Terminos y condiciones</label>
+                            </div> --}}
+                            <div class="d-grid gap">
+                                <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                             </div>
-                            <button type="submit" class="btn btn-primary">Ingresar</button>
                         </form>
                     </div>
                 </div>

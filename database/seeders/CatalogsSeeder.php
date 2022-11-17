@@ -112,5 +112,81 @@ class CatalogsSeeder extends Seeder
                 ['nombre' => ' No especificado'],
             ]
         );
+
+        // estatus_estudiante
+        DB::table('estatus_estudiante')->insert(
+            [
+                [
+                    'id' => 1,
+                    'nombre' => 'Inactivo',
+                ],
+                [
+                    'id' => 2,
+                    'nombre' => 'Activo',
+                ]
+            ]
+        );
+
+        // Plan Estudios
+        DB::table('plan_estudios')->insert(
+            [
+                [
+                    'nombre' => 'Semestre',
+                    'modalidad' => 'Escolarizada',
+                    'costo' => 2015.35,
+                ],
+                [
+                    'nombre' => 'cuatrimestre',
+                    'modalidad' => 'Escolarizada',
+                    'costo' => 1250.30,
+                ]
+            ]
+        );
+
+        // Caarreras
+        DB::table('carreras')->insert(
+            [
+                [
+                    'nombre' => 'Arquitectura',
+                    'plan_estudio_id' => 1,
+                    'ciclos' => 8,
+                ],
+                [
+                    'nombre' => 'Ciencias de la comunicación',
+                    'plan_estudio_id' => 1,
+                    'ciclos' => 8,
+                ],
+                [
+                    'nombre' => 'Contaduría pública',
+                    'plan_estudio_id' => 2,
+                    'ciclos' => 10,
+                ],
+                [
+                    'nombre' => 'Derecho',
+                    'plan_estudio_id' => 1,
+                    'ciclos' => 8,
+                ],
+                [
+                    'nombre' => 'Ingeniería en Software',
+                    'plan_estudio_id' => 1,
+                    'ciclos' => 8,
+                ],
+            ]
+        );
+
+        // Estudiante
+        DB::table('estudiantes')->insert(
+            [
+                [
+                    'matricula' => 'VAVC881010',
+                    'paterno' => 'Vazquez',
+                    'materno' => 'Valdivia',
+                    'nombre' => 'Christian Alan',
+                    'fecha_nacimiento' => '1988-10-10',
+                    'estatus_estudiante_id' => 2,
+                    'carrera_id' => 5,
+                ]
+            ]
+        );
     }
 }

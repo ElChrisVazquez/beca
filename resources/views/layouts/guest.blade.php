@@ -14,8 +14,13 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    {{-- SweetAlert --}}
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}" defer></script>
+    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+
 
 </head>
 
@@ -78,6 +83,7 @@
             </div>
         </nav>
 
+        @include('sweetalert::alert')
         <main class="py-4">
             @yield('content')
         </main>
