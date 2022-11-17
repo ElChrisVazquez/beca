@@ -19,8 +19,28 @@ Route::get('/', function () {
         'title' => 'Inicio'
     ]);
 });
-Route::get('/estudio', function () {
-    return view('formatos.estudio', [
+Route::get('/uno', function () {
+    return view('formatos.uno', [
+        'title' => 'Inicio'
+    ]);
+});
+Route::get('/dos', function () {
+    return view('formatos.dos', [
+        'title' => 'Inicio'
+    ]);
+});
+Route::get('/tres', function () {
+    return view('formatos.tres', [
+        'title' => 'Inicio'
+    ]);
+});
+Route::get('/cuatro', function () {
+    return view('formatos.cuatro', [
+        'title' => 'Inicio'
+    ]);
+});
+Route::get('/uno', function () {
+    return view('formatos.uno', [
         'title' => 'Inicio'
     ]);
 });

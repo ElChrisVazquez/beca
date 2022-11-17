@@ -110,17 +110,19 @@ return new class extends Migration
         });
 
         // Historicos
-        Schema::dropIfExists('historicos');
         Schema::create('historicos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('estudiante_id')->nullable(false);
+            $table->string('matricula_estudiante', 10)->nullable(false);
             $table->string('ciclo', 5)->nullable(false);
-            $table->tinyInteger('estatus_beca')->nullable(false);
-            $table->tipo_beca ('auto_cantidad')->nullable(false);
-            $table->integer('auto_plazos')->nullable(false);
-            $table->double('auto_pago')->nullable(false);
+            $table->tinyInteger('tipo_beca')->nullable(false);
+            $table->double('promedio')->nullable(false);
+            $table->double('promedio_anterior')->nullable(false);
+            $table->tinyInteger('semestre')->nullable(false);
+            $table->tinyInteger('porcentaje')->nullable(false);
 
-            // $table->foreign('estudiante_id')->references('id')->on('estudiantes');
+            $table->timestamps();
+
+            // $table->foreign('matricula_estudiante')->references('matricula')->on('estudiantes');
         });
     }
 

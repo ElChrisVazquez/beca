@@ -285,9 +285,10 @@
                                     </select>
                                 </div>
                             </div>
+                            <br>
                             {{-- 10 --}}
-                            <h3 class="mb-3">Cuál es la principal ocupación remunerada que tienen sus padres o tutores
-                                actualmente:</h3>
+                            <h4 class="mb-3">Cuál es la principal ocupación remunerada que tienen sus padres o tutores
+                                actualmente:</h4>
                             <hr>
                             <h4 class="mb-3">Padre:</h4>
                             <div class="row">
@@ -362,7 +363,7 @@
                                         required>
                                 </div>
                             </div>
-                            <hr>
+                            <br>
                             <h3 class="mb-3">En caso de existir más personas que aporten al gasto familiar, específique
                                 los siguientes datos:</h3>
                             <button class="btn btn-secondary" id="crear_familiar_gastos">Añadir persona +</button>
