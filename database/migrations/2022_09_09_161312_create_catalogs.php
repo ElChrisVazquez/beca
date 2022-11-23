@@ -14,19 +14,17 @@ return new class extends Migration
      */
     public function up()
     {
-        // Parentesco
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        // Parentesco
         Schema::dropIfExists('c_parentescos');
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Schema::create('c_parentescos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->nullable(false);
         });
 
         // Estudios
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('c_niveles_academicos');
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Schema::create('c_niveles_academicos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->nullable(false);
@@ -128,6 +126,36 @@ return new class extends Migration
 
             // $table->foreign('matricula_estudiante')->references('matricula')->on('estudiantes');
         });
+
+        Schema::dropIfExists('c_entidad');
+        Schema::create('c_entidad', function (Blueprint $table) {
+            $table->string('cd_ent', 2)->unique()->index();
+            $table->string('nb_entidad', 255)->nullable(false);
+            $table->string('cd_ent_renapo', 10)->nullable(false);
+            $table->string('nb_ent', 10)->nullable(false);
+        });
+
+        Schema::dropIfExists('c_mun');
+        Schema::create('c_mun', function (Blueprint $table) {
+            $table->string('cve_mun_conca', 5)->unique()->index();
+            $table->string('nom_mun', 255)->nullable(false);
+            $table->string('cve_ent', 2)->nullable(false);
+
+            $table->foreign('cve_ent')->references('cd_ent')->on('c_entidad')->onDelete('cascade');
+        });
+
+        Schema::create('c_loc', function (Blueprint $table) {
+            $table->string('cve_loc_conca', 9)->unique()->index();
+            $table->string('nom_loc', 255)->nullable(false);
+            $table->string('ambito', 1)->nullable(false);
+            $table->float('latitud', 12, 3)->nullable(false);
+            $table->float('longitud', 12, 3)->nullable(false);
+            $table->string('cve_mun_conca', 5);
+
+            $table->foreign('cve_mun_conca')->references('cve_mun_conca')->on('c_mun')->onDelete('cascade');
+        });
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 
     /**

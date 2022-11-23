@@ -10,7 +10,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form>
+                        <form action="{{ route('estudio.dos.set') }}" method="POST">
                             @csrf
                             {{-- 1. --}}
 
@@ -21,9 +21,9 @@
                                     <label for="padres" class="form-label fw-bold">Viven sus padres:</label>
                                     <select class="form-select" id="padres" name="padres" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Ambos</option>
-                                        <option>Solo el padre</option>
-                                        <option>Solo la madre</option>
+                                        <option value="1">Ambos</option>
+                                        <option value="2">Solo el padre</option>
+                                        <option value="3">Solo la madre</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4 mb-3">
@@ -40,22 +40,23 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="padres_juntos" class="form-label fw-bold">Viven juntos:</label>
-                                    <select class="form-select" id="padres_juntos" name="padres_juntos" aria-label="">
+                                    <select class="form-select" id="padres_juntos" name="padres_juntos" aria-label=""
+                                        required>
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Si</option>
-                                        <option>No</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="padres_madre_civil" class="form-label fw-bold">Estado civil de los
+                                    <label for="padres_civil" class="form-label fw-bold">Estado civil de los
                                         padres</label>
-                                    <select class="form-select" id="padres_madre_civil" name="padres_madre_civil"
-                                        aria-label="">
+                                    <select class="form-select" id="padres_civil" name="padres_civil" aria-label=""
+                                        required>
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Casada(o)</option>
-                                        <option>Unión libre</option>
-                                        <option>Viuda(o)</option>
-                                        <option>Divorciada(o)</option>
+                                        <option value="1">Casada(o)s</option>
+                                        <option value="2">Unión libre</option>
+                                        <option value="3">Viuda(o)</option>
+                                        <option value="4">Divorciada(o)</option>
                                     </select>
                                 </div>
 
@@ -65,10 +66,10 @@
                                     <select class="form-select" id="padres_padre_escolaridad"
                                         name="padres_padre_escolaridad" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Primaria</option>
-                                        <option>Secundaria</option>
-                                        <option>Licenciatura</option>
-                                        <option>Postgrado</option>
+                                        <option value="1">Primaria</option>
+                                        <option value="2">Secundaria</option>
+                                        <option value="3">Licenciatura</option>
+                                        <option value="4">Postgrado</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -77,10 +78,10 @@
                                     <select class="form-select" id="padres_madre_escolaridad"
                                         name="padres_madre_escolaridad" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Primaria</option>
-                                        <option>Secundaria</option>
-                                        <option>Licenciatura</option>
-                                        <option>Postgrado</option>
+                                        <option value="1">Primaria</option>
+                                        <option value="2">Secundaria</option>
+                                        <option value="3">Licenciatura</option>
+                                        <option value="4">Postgrado</option>
                                     </select>
                                 </div>
                             </div>
@@ -98,30 +99,28 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="padre_trabajo" class="form-label fw-bold">Lugar de trabajo:</label>
-                                    <input type="text" class="form-control" id="padre_trabajo" name="padre_trabajo"
-                                        required>
+                                    <input type="text" class="form-control" id="padre_trabajo" name="padre_trabajo">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="padre_cargo" class="form-label fw-bold">Cargo o puesto que
                                         desempeña:</label>
-                                    <input type="text" class="form-control" id="padre_cargo" name="padre_cargo" required>
+                                    <input type="text" class="form-control" id="padre_cargo" name="padre_cargo">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="padre_tiempo" class="form-label fw-bold">Tiempo laborando en la
                                         empresa:</label>
-                                    <input type="text" class="form-control" id="padre_tiempo" name="padre_tiempo"
-                                        required>
+                                    <input type="text" class="form-control" id="padre_tiempo" name="padre_tiempo">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="padre_domicilio" class="form-label fw-bold">Domicilio de la
                                         empresa:</label>
-                                    <input type="text" class="form-control" id="padre_domicilio" name="padre_domicilio"
-                                        required>
+                                    <input type="text" class="form-control" id="padre_domicilio"
+                                        name="padre_domicilio">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="padre_telefono" class="form-label fw-bold">Telefono de la empresa:</label>
-                                    <input type="text" class="form-control" id="padre_telefono" name="padre_telefono"
-                                        required>
+                                    <input type="text" class="form-control" id="padre_telefono"
+                                        name="padre_telefono">
                                 </div>
                             </div>
                             <hr>
@@ -134,31 +133,28 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="madre_trabajo" class="form-label fw-bold">Lugar de trabajo:</label>
-                                    <input type="text" class="form-control" id="madre_trabajo" name="madre_trabajo"
-                                        required>
+                                    <input type="text" class="form-control" id="madre_trabajo" name="madre_trabajo">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="madre_cargo" class="form-label fw-bold">Cargo o puesto que
                                         desempeña:</label>
-                                    <input type="text" class="form-control" id="madre_cargo" name="madre_cargo"
-                                        required>
+                                    <input type="text" class="form-control" id="madre_cargo" name="madre_cargo">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="madre_tiempo" class="form-label fw-bold">Tiempo laborando en la
                                         empresa:</label>
-                                    <input type="text" class="form-control" id="madre_tiempo" name="madre_tiempo"
-                                        required>
+                                    <input type="text" class="form-control" id="madre_tiempo" name="madre_tiempo">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="madre_domicilio" class="form-label fw-bold">Domicilio de la
                                         empresa:</label>
                                     <input type="text" class="form-control" id="madre_domicilio"
-                                        name="madre_domicilio" required>
+                                        name="madre_domicilio">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="madre_telefono" class="form-label fw-bold">Telefono de la empresa:</label>
-                                    <input type="text" class="form-control" id="madre_telefono" name="madre_telefono"
-                                        required>
+                                    <input type="text" class="form-control" id="madre_telefono"
+                                        name="madre_telefono">
                                 </div>
                             </div>
 

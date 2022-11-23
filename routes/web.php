@@ -15,11 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/uno', function () {
-    return view('formatos.uno', [
-        'title' => 'Inicio'
-    ]);
-});
 Route::get('/dos', function () {
     return view('formatos.dos', [
         'title' => 'Inicio'
@@ -53,9 +48,15 @@ Route::get('/localidades', [CatalogsController::class, 'getLocalidades'])->name(
 Route::get('/colonias', [CatalogsController::class, 'getColonias'])->name('colonias');
 Route::get('/cps', [CatalogsController::class, 'getCps'])->name('cps');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'inicio'])->name('inicio');
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'checkStudent'])->name('check');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/uno', [App\Http\Controllers\EstudioUnoController::class, 'index'])->name('estudio.uno.index');
+Route::post('/uno', [App\Http\Controllers\EstudioUnoController::class, 'setEstudio'])->name('estudio.uno.set');
+
+Route::get('/dos', [App\Http\Controllers\EstudioDosController::class, 'index'])->name('estudio.dos.index');
+Route::post('/dos', [App\Http\Controllers\EstudioDosController::class, 'setEstudio'])->name('estudio.dos.set');

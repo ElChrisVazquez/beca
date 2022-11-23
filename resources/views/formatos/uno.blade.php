@@ -9,24 +9,27 @@
                         <h3 class="mb-3">1. Informacion del solicitante</h3>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="{{ route('estudio.uno.set') }}" method="POST">
                             @csrf
                             {{-- 1. --}}
                             <div class="row">
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="paterno" class="form-label fw-bold">Apellido Paterno</label>
                                     <input type="text" class="form-control" id="paterno" name="paterno"
-                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" required>
+                                        value="{{ session('estudiante')->paterno }}"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" disabled>
                                 </div>
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="materno" class="form-label fw-bold">Apellido Materno</label>
                                     <input type="text" class="form-control" id="materno" name="materno"
-                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" required>
+                                        value="{{ session('estudiante')->materno }}"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" disabled>
                                 </div>
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <label for="nombre" class="form-label fw-bold">Nombre(s)</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre"
-                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" required>
+                                        value="{{ session('estudiante')->nombre }}"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')" disabled>
                                 </div>
                             </div>
                             <div class="row">
@@ -65,7 +68,7 @@
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-6 col-sm-6 mb-3">
                                     <label for="interior" class="form-label fw-bold">Interior</label>
                                     <input type="text" class="form-control" id="interior" name="interior"
-                                        oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')" required>
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')">
                                 </div>
                             </div>
                             <div class="row">
@@ -140,10 +143,10 @@
                                     <label for="dependencia" class="form-label fw-bold">Depende econocimamente de:</label>
                                     <select class="form-select" id="dependencia" name="dependencia" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Padres</option>
-                                        <option>Tutores</option>
-                                        <option>Usted mismo</option>
-                                        <option>Otro</option>
+                                        <option value="1">Padres</option>
+                                        <option value="2">Tutores</option>
+                                        <option value="3">Usted mismo</option>
+                                        <option value="4">Otro</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3" id="dependencia_especifique" style="display: none">
@@ -160,11 +163,11 @@
                                     <label for="residencia" class="form-label fw-bold">Vive con:</label>
                                     <select class="form-select" id="residencia" name="residencia" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option>Padres</option>
-                                        <option>Tutores</option>
-                                        <option>Solo</option>
-                                        <option>Conyuge</option>
-                                        <option>Otro</option>
+                                        <option value="1">Padres</option>
+                                        <option value="2">Tutores</option>
+                                        <option value="3">Solo</option>
+                                        <option value="4">Conyuge</option>
+                                        <option value="5">Otro</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3" id="residencia_especifique" style="display: none">
@@ -197,7 +200,7 @@
                                     <label for="trabajo_puesto" class="form-label fw-bold">Cargo o puesto que
                                         despempeña:</label>
                                     <input type="text" class="form-control" id="trabajo_puesto" name="trabajo_puesto"
-                                        oninput="this.value = this.value.replace(/[^a-zA-z]/g, '')" required disabled>
+                                        oninput="this.value = this.value.replace(/[^a-zA-z ]/g, '')" required disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="trabajo_tiempo" class="form-label fw-bold">Cuanto tiempo tiene laborando
@@ -232,8 +235,8 @@
             axios.get('/entidades').
             then(response => {
                 response.data.map((e) => {
-                    $('#estado').append('<option value="' + e.cve_ent +
-                        '">' + e.nom_ent + '</option>');
+                    $('#estado').append('<option value="' + e.cd_ent +
+                        '">' + e.nb_entidad + '</option>');
                 });
             });
         });
@@ -256,7 +259,7 @@
                     );
                 response.data.map((e) => {
                     $('#municipio')
-                        .append('<option value="' + e.cve_mun + '">' + e.nom_mun +
+                        .append('<option value="' + e.cve_mun_conca + '">' + e.nom_mun +
                             '</option>');
                 });
             });
@@ -280,7 +283,7 @@
                     );
                 response.data.map((e) => {
                     $('#poblacion')
-                        .append('<option value="' + e.cve_loc + '">' + e.nom_loc +
+                        .append('<option value="' + e.cve_loc_conca + '">' + e.nom_loc +
                             '</option>');
                 });
 
@@ -336,7 +339,7 @@
 
         $('#dependencia').change(function (e) { 
             e.preventDefault();
-            if(this.value === 'Otro'){
+            if(this.value == '4'){
                 $('#dependencia_especifique').show();
                 $('#dependencia_parentesco').prop('disabled', false);
                 
@@ -349,7 +352,7 @@
 
         $('#residencia').change(function (e) { 
             e.preventDefault();
-            if(this.value === 'Otro'){
+            if(this.value === '5'){
                 $('#residencia_especifique').show();
                 $('#residencia_otro').prop('disabled', false);
             }else{

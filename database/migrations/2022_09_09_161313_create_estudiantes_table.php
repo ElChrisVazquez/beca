@@ -13,6 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::dropIfExists('estudiantes');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
             $table->string('matricula', 10)->unique();

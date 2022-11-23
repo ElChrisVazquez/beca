@@ -54,12 +54,18 @@ class HomeController extends Controller
 
     public function inicio()
     {
+        // Si existe un error
         if (session('errors')) {
             $error = "";
             foreach (session('errors')->getMessages() as $key => $value) {
                 $error .= $key . ' - ' . $value[0] . '<br>';
             }
             Alert::html('Error', $error, 'error')->persistent('Dismiss');
+        }
+
+        // Si la session está iniciada
+        if (session()->has('estudiante')) {
+            return redirect('uno');
         }
 
         return view('main', [
@@ -90,6 +96,8 @@ class HomeController extends Controller
 
         try {
             $estudiante = Estudiante::where('matricula', '=', $request->matricula)->firstOrFail();
+
+            session()->put('estudiante', $estudiante);
 
             return redirect('uno');
         } catch (\Throwable $th) {

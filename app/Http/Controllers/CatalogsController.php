@@ -12,7 +12,7 @@ class CatalogsController extends Controller
      */
     public function getEntidades()
     {
-        $entidades = DB::table('c_entidades')->get();
+        $entidades = DB::table('c_entidad')->get();
         return response($entidades);
     }
 
@@ -22,7 +22,7 @@ class CatalogsController extends Controller
      */
     public function getMunicipios(Request $request)
     {
-        $municipios = DB::table('c_municipios')
+        $municipios = DB::table('c_mun')
             ->where('cve_ent', '=', $request->cve_ent)
             ->orderBy('nom_mun', 'ASC')
             ->get();
@@ -35,8 +35,8 @@ class CatalogsController extends Controller
      */
     public function getLocalidades(Request $request)
     {
-        $localidades = DB::table('c_localidades')
-            ->where('cve_mun', '=', $request->cve_mun)
+        $localidades = DB::table('c_loc')
+            ->where('cve_mun_conca', '=', $request->cve_mun)
             ->orderBy('nom_loc', 'ASC')
             ->get();
         return response($localidades);

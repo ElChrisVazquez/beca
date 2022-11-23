@@ -188,5 +188,48 @@ class CatalogsSeeder extends Seeder
                 ]
             ]
         );
+
+        // Table c_entidad 
+        $fileurls = fopen('database/data/c_entidad.csv', 'r');
+
+        while (($row = fgetcsv($fileurls, 0, ',')) != FALSE) {
+            DB::table('c_entidad')->insert(
+                array(
+                    'cd_ent' => $row[0],
+                    'nb_entidad' => utf8_encode($row[1]),
+                    'cd_ent_renapo' => $row[2],
+                    'nb_ent' => utf8_encode($row[3])
+                )
+            );
+        }
+
+        // Table c_mun 
+        $fileurls = fopen('database/data/c_mun.csv', 'r');
+
+        while (($row = fgetcsv($fileurls, 0, ',')) != FALSE) {
+            DB::table('c_mun')->insert(
+                array(
+                    'cve_mun_conca' => $row[0],
+                    'nom_mun' => utf8_encode($row[1]),
+                    'cve_ent' => $row[2]
+                )
+            );
+        }
+
+        // Table c_loc 
+        $fileurls = fopen('database/data/c_loc.csv', 'r');
+
+        while (($row = fgetcsv($fileurls, 0, ',')) != FALSE) {
+            DB::table('c_loc')->insert(
+                array(
+                    'cve_loc_conca' => $row[0],
+                    'nom_loc' => utf8_encode($row[1]),
+                    'ambito' => $row[2],
+                    'latitud' => $row[3],
+                    'longitud' => $row[4],
+                    'cve_mun_conca' => $row[5]
+                )
+            );
+        }
     }
 }
