@@ -3,11 +3,11 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-2">
-            <img src={{ asset('img/gobjal_white.png') }} alt="" width="100" class="">
+            {{-- <img src={{ asset('img/gobjal_white.png') }} alt="" width="100" class=""> --}}
 
         </div>
         <div class="col-md-2 mt-3 ml-3">
-            <img src={{ asset('img/ssas_logo.png') }} alt="" width="200" class="">
+            {{-- <img src={{ asset('img/ssas_logo.png') }} alt="" width="200" class=""> --}}
             <div class="col-md-2">
             </div>
         </div>

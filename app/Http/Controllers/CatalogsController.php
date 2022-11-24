@@ -65,4 +65,26 @@ class CatalogsController extends Controller
 
         return response($cps);
     }
+
+    /**
+     * @return response escolaridades
+     */
+    public function getEscolaridades()
+    {
+        $escolaridades = DB::table('c_escolaridades')
+            ->get();
+
+        return response($escolaridades);
+    }
+
+    /**
+     * @return response parentescos
+     */
+    public function getParentescos()
+    {
+        $parentescos = DB::table('c_parentescos')
+            ->get();
+
+        return response($parentescos);
+    }
 }

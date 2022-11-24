@@ -66,10 +66,6 @@
                                     <select class="form-select" id="padres_padre_escolaridad"
                                         name="padres_padre_escolaridad" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option value="1">Primaria</option>
-                                        <option value="2">Secundaria</option>
-                                        <option value="3">Licenciatura</option>
-                                        <option value="4">Postgrado</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -78,10 +74,6 @@
                                     <select class="form-select" id="padres_madre_escolaridad"
                                         name="padres_madre_escolaridad" aria-label="">
                                         <option selected disabled selected>Seleccione alguna opción</option>
-                                        <option value="1">Primaria</option>
-                                        <option value="2">Secundaria</option>
-                                        <option value="3">Licenciatura</option>
-                                        <option value="4">Postgrado</option>
                                     </select>
                                 </div>
                             </div>
@@ -166,4 +158,15 @@
         </div>
     </div>
 @endsection
-
+@section('scripts')
+    <script type="module">
+        axios.get('/escolaridades').
+        then(response => {
+            response.data.map((e) => {
+                $('#padres_padre_escolaridad, #padres_madre_escolaridad').append(
+                    '<option value="' + e.id +
+                    '">' + e.nombre + '</option>');
+            });
+        });
+    </script>
+@endsection

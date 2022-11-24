@@ -47,6 +47,8 @@ Route::get('/municipios', [CatalogsController::class, 'getMunicipios'])->name('m
 Route::get('/localidades', [CatalogsController::class, 'getLocalidades'])->name('localidades');
 Route::get('/colonias', [CatalogsController::class, 'getColonias'])->name('colonias');
 Route::get('/cps', [CatalogsController::class, 'getCps'])->name('cps');
+Route::get('/escolaridades', [CatalogsController::class, 'getEscolaridades'])->name('escolaridades');
+Route::get('/parentescos', [CatalogsController::class, 'getParentescos'])->name('parentescos');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();

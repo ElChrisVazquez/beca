@@ -15,23 +15,41 @@ class CatalogsSeeder extends Seeder
      */
     public function run()
     {
-        // Nivel academico
-        DB::table('c_niveles_academicos')->insert(
-            [
-                [
-                    'nombre' => 'Educación media superior',
-                ],
-                [
-                    'nombre' => 'Licenciatura',
-                ],
-                [
-                    'nombre' => 'Posgrado',
-                ],
-                [
-                    'nombre' => 'Educación contonua',
-                ],
-            ]
-        );
+
+        // Table c_escolaridades 
+        $fileurls = fopen('database/data/c_escolaridades.csv', 'r');
+
+        while (($row = fgetcsv($fileurls, 0, ',')) != FALSE) {
+            DB::table('c_escolaridades')->insert(
+                array(
+                    'nombre' => $row[1],
+                )
+            );
+        }
+
+        // Table c_colonias 
+        $fileurls = fopen('database/data/c_colonias.csv', 'r');
+
+        while (($row = fgetcsv($fileurls, 0, ',')) != FALSE) {
+            DB::table('c_colonias')->insert(
+                array(
+                    'd_codigo' => utf8_encode($row[1]),
+                    'd_asenta' => utf8_encode($row[2]),
+                    'd_tipo_asenta'  => utf8_encode($row[3]),
+                    'D_mnpio'  => utf8_encode($row[4]),
+                    'd_estado'  => utf8_encode($row[5]),
+                    'd_ciudad'  => utf8_encode($row[6]),
+                    'd_CP'  => utf8_encode($row[7]),
+                    'c_estado'  => utf8_encode($row[8]),
+                    'c_oficina'  => utf8_encode($row[9]),
+                    'c_CP'  => utf8_encode($row[10]),
+                    'c_mnpio' => utf8_encode($row[11]),
+                    'id_asenta_cpcons' => utf8_encode($row[12]),
+                    'd_zona'  => utf8_encode($row[13]),
+                    'c_cve_ciudad'  => utf8_encode($row[14])
+                )
+            );
+        }
 
         // Nivel academico
         DB::table('c_parentescos')->insert(

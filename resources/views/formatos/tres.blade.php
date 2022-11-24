@@ -393,6 +393,7 @@
                             </small>
                             <hr>
 
+                            
                             <button type="submit" class="btn btn-primary">Ingresar</button>
                         </form>
                     </div>
@@ -423,8 +424,12 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="familiar_parentesco" class="form-label fw-bold">Parentesco:</label>
-                            <input type="text" class="form-control" id="familiar_parentesco"
-                                name="familiar_parentesco[]" required>
+                            <select class="form-select" id="familiar_parentesco" name="familiar_parentesco[]" aria-label="">
+                                        <option hidden>Seleccione alguna opción</option>
+                                        @foreach ($parentescos as $parentesco)
+                                <option value="{{ $parentesco->id }}">{{ $parentesco->nombre }}</option>
+                            @endforeach
+                                    </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="familiar_ocupacion" class="form-label fw-bold">Ocupación:</label>
@@ -433,8 +438,12 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="familiar_estudios" class="form-label fw-bold">Estudios maximos:</label>
-                            <input type="text" class="form-control" id="familiar_estudios"
-                                name="familiar_estudios[]" required>
+                            <select class="form-select" id="familiar_estudios" name="familiar_estudios[]" aria-label="">
+                                        <option hidden>Seleccione alguna opción</option>
+                                        @foreach ($escolaridades as $escolaridad)
+                                <option value="{{ $escolaridad->id }}">{{ $escolaridad->nombre }}</option>
+                            @endforeach
+                                    </select>
                         </div>
                     </div>`);
             });
@@ -456,8 +465,12 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="casa_parentesco" class="form-label fw-bold">Parentesco:</label>
-                                    <input type="text" class="form-control" id="casa_parentesco"
-                                        name="casa_parentesco[]" required>
+                                    <select class="form-select" id="casa_parentesco" name="casa_parentesco[]" aria-label="">
+                                        <option hidden>Seleccione alguna opción</option>
+                                        @foreach ($parentescos as $parentesco)
+                                <option value="{{ $parentesco->id }}">{{ $parentesco->nombre }}</option>
+                            @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="casa_ocupacion" class="form-label fw-bold">Ocupación:</label>
@@ -466,8 +479,12 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="casa_estudios" class="form-label fw-bold">Estudios maximos:</label>
-                                    <input type="text" class="form-control" id="casa_estudios"
-                                        name="casa_estudios[]" required>
+                                    <select class="form-select" id="casa_estudios" name="casa_estudios[]" aria-label="">
+                                        <option hidden>Seleccione alguna opción</option>
+                                        @foreach ($escolaridades as $escolaridad)
+                                <option value="{{ $escolaridad->id }}">{{ $escolaridad->nombre }}</option>
+                            @endforeach
+                                    </select>
                                 </div>
                             </div>
             `);
@@ -479,14 +496,18 @@
                 <hr>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="insituto_familiar" class="form-label fw-bold">Nombre:</label>
-                                        <input type="text" class="form-control" id="insituto_familiar"
-                                            name="insituto_familiar[]" required>
+                                        <label for="instituto_familiar" class="form-label fw-bold">Nombre:</label>
+                                        <input type="text" class="form-control" id="instituto_familiar"
+                                            name="instituto_familiar[]" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="instituto_nivel" class="form-label fw-bold">Nivel de estudio:</label>
-                                        <input type="text" class="form-control" id="instituto_nivel"
-                                            name="instituto_nivel[]" required>
+                                        <select class="form-select" id="instituto_nivel" name="instituto_nivel[]" aria-label="">
+                                        <option hidden>Seleccione alguna opción</option>
+                                        @foreach ($escolaridades as $escolaridad)
+                                            <option value="{{ $escolaridad->id }}">{{ $escolaridad->nombre }}</option>
+                                        @endforeach
+                                    </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="instituto_nombre" class="form-label fw-bold">Institución:</label>
@@ -498,45 +519,59 @@
             });
 
             let gastos = Number(0);
-            async function suma() {
-                    if (gastos > 0) {
-                        gastos = 0;
-                    }
-                    $('#gasto_alimentos, #gastos_despensa, #gastos_limpieza, #gasto_telefono, #gasto_domestico, #gasto_auto, #gasto_tarjetas, #gasto_ropa, #gasto_personal, #gasto_colegiatura_propia, #gasto_colegiatura_otros, #gasto_diversion, #gasto_libros, #gasto_renta, #gasto_luz, #gasto_agua, #gasto_transporte, #gasto_celular, #gasto_cable, #gasto_seguros, #gasto_internet, #gasto_gas, #gasto_hipoteca, #gasto_medicos, #gasto_vacaciones, #gasto_otros')
-                        .each(function(index) {
-                            gastos = Number(gastos) + Number($(this).val());
-                        });
-                    $('#gasto_total').val(gastos);
+
+            async function suma_gastos() {
+                if (gastos > 0) {
+                    gastos = 0;
                 }
+                $('#gasto_alimentos, #gastos_despensa, #gastos_limpieza, #gasto_telefono, #gasto_domestico, #gasto_auto, #gasto_tarjetas, #gasto_ropa, #gasto_personal, #gasto_colegiatura_propia, #gasto_colegiatura_otros, #gasto_diversion, #gasto_libros, #gasto_renta, #gasto_luz, #gasto_agua, #gasto_transporte, #gasto_celular, #gasto_cable, #gasto_seguros, #gasto_internet, #gasto_gas, #gasto_hipoteca, #gasto_medicos, #gasto_vacaciones, #gasto_otros')
+                    .each(function(index) {
+                        gastos = Number(gastos) + Number($(this).val());
+                    });
+                    console.log(gastos);
+                $('#gasto_total').val(gastos);
+            }
             $('#gasto_alimentos, #gastos_despensa, #gastos_limpieza, #gasto_telefono, #gasto_domestico, #gasto_auto, #gasto_tarjetas, #gasto_ropa, #gasto_personal, #gasto_colegiatura_propia, #gasto_colegiatura_otros, #gasto_diversion, #gasto_libros, #gasto_renta, #gasto_luz, #gasto_agua, #gasto_transporte, #gasto_celular, #gasto_cable, #gasto_seguros, #gasto_internet, #gasto_gas, #gasto_hipoteca, #gasto_medicos, #gasto_vacaciones, #gasto_otros')
                 .each(function(index) {
                     // $(this).val(Number(0));
                     $(this).change(function(e) {
                         e.preventDefault();
-                        suma();
+                        suma_gastos();
                     });
                 });
 
             let foraneo = Number(0);
-            async function suma() {
-                    if (foraneo > 0) {
-                        foraneo = 0;
-                    }
-                    $('#foraneo_colegiatura, #foraneo_ropa, #foraneo_vivienda, #foraneo_libros, #foraneo_lavanderia, #foraneo_transporte_local, #foraneo_personal, #foraneo_transporte_foraneo, #foraneo_comida')
-                        .each(function(index) {
-                            foraneo = Number(foraneo) + Number($(this).val());
-                        });
-                    $('#foraneo_total').val(foraneo);
+            async function suma_foraneo() {
+                if (foraneo > 0) {
+                    foraneo = 0;
                 }
                 $('#foraneo_colegiatura, #foraneo_ropa, #foraneo_vivienda, #foraneo_libros, #foraneo_lavanderia, #foraneo_transporte_local, #foraneo_personal, #foraneo_transporte_foraneo, #foraneo_comida')
+                    .each(function(index) {
+                        foraneo = Number(foraneo) + Number($(this).val());
+                    });
+                $('#foraneo_total').val(foraneo);
+            }
+            $('#foraneo_colegiatura, #foraneo_ropa, #foraneo_vivienda, #foraneo_libros, #foraneo_lavanderia, #foraneo_transporte_local, #foraneo_personal, #foraneo_transporte_foraneo, #foraneo_comida')
                 .each(function(index) {
                     // $(this).val(Number(0));
                     $(this).change(function(e) {
                         e.preventDefault();
-                        suma();
+                        suma_foraneo();
                     });
                 });
-           
+
+                $('#seguro').change(function (e) { 
+                    e.preventDefault();
+                    console.log(parseInt(this.value));
+                    if (parseInt(this.value) === 5) {
+                        $('#seguro_otro').show();
+                        $('#seguro_especifique').prop('disabled', false);
+                    }else{
+                        $('#seguro_otro').hide();
+                        $('#seguro_especifique').prop('disabled', true);
+
+                    }
+                });
 
         });
     </script>

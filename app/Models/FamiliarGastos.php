@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EstudioTres extends Model
+class FamiliarGastos extends Model
 {
     use HasFactory;
+
     /**
      * The primary key associated with the table.
      *
@@ -20,7 +21,7 @@ class EstudioTres extends Model
      *
      * @var string
      */
-    protected $table = 'estudio_tres';
+    protected $table = 'familiar_gastos';
 
     /**
      * Indicates if the model's ID is auto-incrementing.
@@ -43,22 +44,9 @@ class EstudioTres extends Model
      */
     protected $fillable = [
         'estudiante_id',
-        'hermanos',
-        'hermanos_residen',
-        'dependencia',
-        'seguro',
-        'seguro_especifique',
-        'familia_trabajo',
-        'familia_aporte',
-        'ingreso_propio',
-        'ingreso_padre',
-        'ingreso_conyuge',
-        'ingreso_hermanos',
-        'ingreso_madre',
-        'ingreso_otro',
-        'gasto_total',
-        'foraneo_total',
-        'created_at',
-        'updated_at',
+        'familiar_nombre',
+        'familiar_edad',
+        'familair_parentesco',
+        'familiar_estudios'
     ];
 }
