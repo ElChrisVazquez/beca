@@ -87,12 +87,7 @@ class HomeController extends Controller
                 'min' => 'No cumple con la longitud necesaria.',
                 'max' => 'No cumple con la longitud necesaria.'
             ]
-        );
-
-        // Si falla la validación
-        if ($validator->fails()) {
-            return back()->with('errors', $validator->messages()->all()[0])->withInput();
-        }
+        )->validate();
 
         try {
             $estudiante = Estudiante::where('matricula', '=', $request->matricula)->firstOrFail();

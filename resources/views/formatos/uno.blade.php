@@ -322,56 +322,56 @@
             });
         });
 
-        $('#beca').change(function (e) { 
+        $('#beca').change(function(e) {
             e.preventDefault();
-            if(parseInt(this.value) === 1){
+            if (parseInt(this.value) === 1) {
                 $('#beca_si').show();
                 $('#beca_tipo').prop('disabled', false);
                 $('#beca_cantidad').prop('disabled', false);
                 $('#beca_instituto').prop('disabled', false);
-            }else{
+            } else {
                 $('#beca_si').hide();
-                $('#beca_tipo').prop('disabled',true);
-                $('#beca_cantidad').prop('disabled',true);
-                $('#beca_instituto').prop('disabled',true);
+                $('#beca_tipo').prop('disabled', true);
+                $('#beca_cantidad').prop('disabled', true);
+                $('#beca_instituto').prop('disabled', true);
             }
         });
 
-        $('#dependencia').change(function (e) { 
+        $('#dependencia').change(function(e) {
             e.preventDefault();
-            if(this.value == '4'){
+            if (this.value == '4') {
                 $('#dependencia_especifique').show();
                 $('#dependencia_parentesco').prop('disabled', false);
-                
-            }else{
+
+            } else {
                 console.log('no entra');
                 $('#dependencia_especifique').hide();
                 $('#dependencia_parentesco').prop('disabled', true);
             }
         });
 
-        $('#residencia').change(function (e) { 
+        $('#residencia').change(function(e) {
             e.preventDefault();
-            if(this.value === '5'){
+            if (this.value === '5') {
                 $('#residencia_especifique').show();
                 $('#residencia_otro').prop('disabled', false);
-            }else{
+            } else {
                 console.log('no entra');
                 $('#residencia_especifique').hide();
                 $('#residencia_otro').prop('disabled', true);
             }
         });
 
-        $('#trabajo').change(function (e) { 
+        $('#trabajo').change(function(e) {
             e.preventDefault();
-            if(parseInt(this.value) === 1){
+            if (parseInt(this.value) === 1) {
                 $('#trabajo_si').show();
                 $('#trabajo_nombre').prop('disabled', false);
                 $('#trabajo_puesto').prop('disabled', false);
                 $('#trabajo_tiempo').prop('disabled', false);
                 $('#trabajo_telefono').prop('disabled', false);
                 $('#trabajo_domicilio').prop('disabled', false);
-            }else{
+            } else {
                 console.log('no entra');
                 $('#trabajo_si').hide();
                 $('#trabajo_nombre').prop('disabled', true);
@@ -380,136 +380,6 @@
                 $('#trabajo_telefono').prop('disabled', true);
                 $('#trabajo_domicilio').prop('disabled', true);
             }
-        });
-
-        $('#crear_familiar_gastos').click(function (e) { 
-            e.preventDefault();
-            $('#familiar_gastos').append(`
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="familiar_nombre" class="form-label fw-bold">Nombre:</label>
-                            <input type="text" class="form-control" id="familiar_nombre"
-                                name="familiar_nombre[]" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="familiar_edad" class="form-label fw-bold">Edad:</label>
-                            <input type="text" class="form-control" id="familiar_edad" name="familiar_edad[]"
-                                required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="familiar_parentesco" class="form-label fw-bold">Parentesco:</label>
-                            <input type="text" class="form-control" id="familiar_parentesco"
-                                name="familiar_parentesco[]" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="familiar_ocupacion" class="form-label fw-bold">Ocupación:</label>
-                            <input type="text" class="form-control" id="familiar_ocupacion"
-                                name="familiar_ocupacion[]" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="familiar_estudios" class="form-label fw-bold">Estudios maximos:</label>
-                            <input type="text" class="form-control" id="familiar_estudios"
-                                name="familiar_estudios[]" required>
-                        </div>
-                    </div>`);
-        });
-
-        $('#crear_familiar_casa').click(function (e) { 
-            e.preventDefault();
-            $('#familiar_casa').append(`
-            <hr>
-            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="casa_nombre" class="form-label fw-bold">Nombre:</label>
-                                    <input type="text" class="form-control" id="casa_nombre" name="casa_nombre[]"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="casa_edad" class="form-label fw-bold">Edad:</label>
-                                    <input type="text" class="form-control" id="casa_edad" name="casa_edad[]"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="casa_parentesco" class="form-label fw-bold">Parentesco:</label>
-                                    <input type="text" class="form-control" id="casa_parentesco"
-                                        name="casa_parentesco[]" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="casa_ocupacion" class="form-label fw-bold">Ocupación:</label>
-                                    <input type="text" class="form-control" id="casa_ocupacion"
-                                        name="casa_ocupacion[]" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="casa_estudios" class="form-label fw-bold">Estudios maximos:</label>
-                                    <input type="text" class="form-control" id="casa_estudios"
-                                        name="casa_estudios[]" required>
-                                </div>
-                            </div>
-            `);
-        });
-
-        $('#crear_familiar_instituto').click(function (e) { 
-            e.preventDefault();
-            $('#familiar_instituto').append(`
-            <hr>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="insituto_familiar" class="form-label fw-bold">Nombre:</label>
-                                    <input type="text" class="form-control" id="insituto_familiar"
-                                        name="insituto_familiar[]" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="instituto_nivel" class="form-label fw-bold">Nivel de estudio:</label>
-                                    <input type="text" class="form-control" id="instituto_nivel"
-                                        name="instituto_nivel[]" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="instituto_nombre" class="form-label fw-bold">Institución:</label>
-                                    <input type="text" class="form-control" id="instituto_nombre"
-                                        name="instituto_nombre[]" required>
-                                </div>
-                            </div>
-            `);
-        });
-        $('#crear_auto').click(function (e) { 
-            e.preventDefault();
-            $('#auto').append(`
-            <hr>
-            <div class="row" id="">
-                                <div class="col-md-6 mb-3">
-                                    <label for="auto_marca" class="form-label fw-bold">Marca:</label>
-                                    <input type="text" class="form-control" id="auto_marca" name="auto_marca[]"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="auto_modelo" class="form-label fw-bold">Modelo:</label>
-                                    <input type="text" class="form-control" id="auto_modelo" name="auto_modelo[]"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="auto_valor" class="form-label fw-bold">Valor comercial actual:</label>
-                                    <input type="text" class="form-control" id="auto_valor" name="auto_valor[]"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="auto_cantidad" class="form-label fw-bold">Cantidad en que se adeuda en
-                                        pesos:</label>
-                                    <input type="text" class="form-control" id="auto_cantidad" name="auto_cantidad[]"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="auto_plazos" class="form-label fw-bold">Plazo en meses:</label>
-                                    <input type="text" class="form-control" id="auto_plazos" name="auto_plazos[]"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="auto_pago" class="form-label fw-bold">Pago mensual:</label>
-                                    <input type="text" class="form-control" id="auto_pago" name="auto_pago[]"
-                                        required>
-                                </div>
-                            </div>
-            `);
         });
     </script>
 @endsection

@@ -60,3 +60,6 @@ Route::post('/uno', [App\Http\Controllers\EstudioUnoController::class, 'setEstud
 
 Route::get('/dos', [App\Http\Controllers\EstudioDosController::class, 'index'])->name('estudio.dos.index');
 Route::post('/dos', [App\Http\Controllers\EstudioDosController::class, 'setEstudio'])->name('estudio.dos.set');
+
+Route::get('/tres', [App\Http\Controllers\EstudioTresController::class, 'index'])->name('estudio.tres.index');
+Route::post('/tres', [App\Http\Controllers\EstudioTresController::class, 'setEstudio'])->name('estudio.tres.set');

@@ -50,6 +50,7 @@ class EstudioDosController extends Controller
     public function setEstudio(Request $request)
     {
 
+        // dd($request->all());
         // Se crea la validación
         $validator = Validator::make(
             $request->all(),
@@ -105,7 +106,10 @@ class EstudioDosController extends Controller
             $estudio->madre_domicilio = ($request->madre_domicilio != null) ? $request->madre_domicilio : null;
             $estudio->madre_telefono = ($request->madre_telefono != null) ? $request->madre_telefono : null;
 
-            dd($estudio);
+            EstudioUno::where('estudiante_id', '=', session('estudiante')->id)
+                ->update(['status_cita_id' => 2]);
+
+            return redirect('/tres');
         } catch (\Throwable $th) {
             dd($th);
         }

@@ -26,13 +26,13 @@ return new class extends Migration
             $table->string('padre_nombre')->nullable(false);
             $table->string('padre_trabajo')->nullable(true);
             $table->string('padre_cargo')->nullable(true);
-            $table->tinyInteger('padre_tiempo')->nullable(true);
+            $table->string('padre_tiempo')->nullable(true);
             $table->string('padre_domicilio')->nullable(true);
             $table->string('padre_telefono')->nullable(true);
             $table->string('madre_nombre')->nullable(false);
             $table->string('madre_trabajo')->nullable(true);
             $table->string('madre_cargo')->nullable(true);
-            $table->tinyInteger('madre_tiempo')->nullable(true);
+            $table->string('madre_tiempo')->nullable(true);
             $table->string('madre_domicilio')->nullable(true);
             $table->string('madre_telefono')->nullable(true);
             $table->timestamps();

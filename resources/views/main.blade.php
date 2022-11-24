@@ -12,8 +12,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="matricula" class="form-label fw-bold">Matrícula</label>
-                                <input type="text" class="form-control" id="matricula" name="matricula" maxlength="10"
-                                    minlength="10" style="text-transform:uppercase" required>
+                                <input type="text" class="form-control" id="matricula" name="matricula" minlength="10" maxlength="10" style="text-transform:uppercase" required>
                             </div>
                             {{-- <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="terminos" required>
