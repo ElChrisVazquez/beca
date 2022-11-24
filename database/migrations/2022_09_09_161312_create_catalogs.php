@@ -114,6 +114,7 @@ return new class extends Migration
             $table->unsignedBigInteger('estudiante_id')->nullable(false);
             $table->string('auto_marca')->nullable(false);
             $table->integer('auto_modelo')->nullable(false);
+            $table->double('auto_valor')->nullable(false);
             $table->double('auto_cantidad')->nullable(false);
             $table->integer('auto_plazos')->nullable(false);
             $table->double('auto_pago')->nullable(false);

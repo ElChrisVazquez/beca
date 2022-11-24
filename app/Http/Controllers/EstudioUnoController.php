@@ -31,6 +31,9 @@ class EstudioUnoController extends Controller
                     case 2:
                         return redirect('/tres');
                         break;
+                    case 3:
+                        return redirect('/cuatro');
+                        break;
                     default:
                         break;
                 }

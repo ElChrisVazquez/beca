@@ -51,6 +51,9 @@ class EstudioTresController extends Controller
                             'escolaridades' => $escolaridades
                         ]);
                         break;
+                    case 3:
+                        return redirect('/cuatro');
+                        break;
                     default:
                         break;
                 }
@@ -134,7 +137,7 @@ class EstudioTresController extends Controller
                     $familiar_casa->save();
                 }
             }
-            
+
             if (isset($request->instituto_familiar)) {
                 for ($i = 0; $i < count($request->instituto_familiar); $i++) {
                     $familiar_instituto = new FamiliarInstituto();

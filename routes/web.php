@@ -56,7 +56,6 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'inicio'])->name('inicio');
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'checkStudent'])->name('check');
 
-
 Route::get('/uno', [App\Http\Controllers\EstudioUnoController::class, 'index'])->name('estudio.uno.index');
 Route::post('/uno', [App\Http\Controllers\EstudioUnoController::class, 'setEstudio'])->name('estudio.uno.set');
 
@@ -65,3 +64,7 @@ Route::post('/dos', [App\Http\Controllers\EstudioDosController::class, 'setEstud
 
 Route::get('/tres', [App\Http\Controllers\EstudioTresController::class, 'index'])->name('estudio.tres.index');
 Route::post('/tres', [App\Http\Controllers\EstudioTresController::class, 'setEstudio'])->name('estudio.tres.set');
+
+Route::get('/cuatro', [App\Http\Controllers\EstudioCuatroController::class, 'index'])->name('estudio.cuatro.index');
+Route::post('/cuatro', [App\Http\Controllers\EstudioCuatroController::class, 'setEstudio'])->name('estudio.cuatro.set');
+
